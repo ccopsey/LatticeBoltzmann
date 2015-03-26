@@ -18,6 +18,10 @@
 		function vector() {
 			return {wall:false, speed:Math.random(), direction:Math.random()*360}
 		}
+		
+		function inlet_vector() {
+			return {wall:false, speed:0.5, direction:0.0}
+		}
 
 		var x = 40;
 		var y = 20;
@@ -29,7 +33,11 @@
 		for(var i = 0;i<y;i++) {
 			data[i] = [];
 			for(var j = 0; j < x; j++) {
-				data[i][j] = new vector();
+				if(j==0) {
+					data[i][j] = new inlet_vector();
+				} else {
+					data[i][j] = new vector();
+				}
 				if(Math.random() < 0.15) {
 					data[i][j].wall=true;
 					data[i][j].speed=0;
