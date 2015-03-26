@@ -16,7 +16,7 @@
 	</svg>
 	<script>
 		function vector() {
-			return {wall:false, speed:Math.random(), direction:Math.random()*360}
+			return {wall:false, speed:0.0, direction:0.0}
 		}
 		
 		function inlet_vector() {
@@ -30,10 +30,10 @@
 
 		var data = [];
 
-		for(var i = 0;i<y;i++) {
+		for(i=0; i<x; i++) {
 			data[i] = [];
-			for(var j = 0; j < x; j++) {
-				if(j==0) {
+			for(j=0; j<y; j++) {
+				if(i==0) {
 					data[i][j] = new inlet_vector();
 				} else {
 					data[i][j] = new vector();
@@ -41,6 +41,121 @@
 				if(Math.random() < 0.15) {
 					data[i][j].wall=true;
 					data[i][j].speed=0;
+				}
+			}
+		}
+
+		// Create a matrix to hold the density of each voxel.  Populate with 1's.
+		var density = math.ones(x, y);
+
+		// Create a matrix to hold the result of the collision step.  One element per voxel per streaming partner.
+		// Populate with equal portions of the total density of each voxel.
+		var feq = math.divide(math.ones(x, y, 9), 20);
+		
+		// Create a matrix to hold the result of the streaming step.  One element per voxel per streaming partner.
+		// Populate with zeroes.
+		var f = math.zeros(x, y, 9);
+		
+		// Create matrices to hold the velocities.
+		var ux = math.zeros(x, y);
+		var uy = math.zeros(x, y);
+		var u_squ = math.zeros(x, y);
+		
+		for(ts=0; ts<1; ts++) {
+
+		// Stream.
+		for(i=0; i<x; i++) {
+			for(j=0; j<y; j++) {
+				// Streaming partner 0 is itself (0 0).
+				f.subset(math.index(i, j, 0), feq.subset(math.index((i+x)%x, (j+y)%y, 0)));
+
+				// Streaming partner 1 is W (-1 0).
+				f.subset(math.index(i, j, 1), feq.subset(math.index((i+x-1)%x, (j+y)%y, 1)));
+
+				// Streaming partner 2 is NW (-1 1).
+				f.subset(math.index(i, j, 2), feq.subset(math.index((i+x-1)%x, (j+y+1)%y, 2)));
+
+				// Streaming partner 3 is N (0 1).
+				f.subset(math.index(i, j, 3), feq.subset(math.index((i+x)%x, (j+y+1)%y, 3)));
+
+				// Streaming partner 4 is NE (1 1).
+				f.subset(math.index(i, j, 4), feq.subset(math.index((i+x+1)%x, (j+y+1)%y, 4)));
+
+				// Streaming partner 5 is E (1 0).
+				f.subset(math.index(i, j, 5), feq.subset(math.index((i+x+1)%x, (j+y)%y, 5)));
+
+				// Streaming partner 6 is SE (1 -1).
+				f.subset(math.index(i, j, 6), feq.subset(math.index((i+x+1)%x, (j+y-1)%y, 6)));
+
+				// Streaming partner 7 is S (0 -1).
+				f.subset(math.index(i, j, 7), feq.subset(math.index((i+x)%x, (j+y-1)%y, 7)));
+
+				// Streaming partner 8 is SW (-1 -1).
+				f.subset(math.index(i, j, 8), feq.subset(math.index((i+x-1)%x, (j+y-1)%y, 8)));
+			}
+		}
+
+		// Calculate new density and velocity values from result of streaming.
+		for(i=0; i<x; i++) {
+			for(j=0; j<y; j++) {
+				d0 = f.subset(math.index(i, j, 0));
+				d1 = f.subset(math.index(i, j, 1));
+				d2 = f.subset(math.index(i, j, 2));
+				dd3 = f.subset(math.index(i, j, 3));
+				d4 = f.subset(math.index(i, j, 4));
+				d5 = f.subset(math.index(i, j, 5));
+				d6 = f.subset(math.index(i, j, 6));
+				d7 = f.subset(math.index(i, j, 7));
+				d8 = f.subset(math.index(i, j, 8));
+				density.subset(math.index(i, j), d0 + d1 + d2 + dd3 + d4 + d5 + d6 + d7 + d8);
+				ux.subset(math.index(i, j), (d8 + d1 + d2 - d4 - d5 - d6)/density.subset(math.index(i, j)));
+				uy.subset(math.index(i, j), (d6 + d7 + d8 - d2 - dd3 - d4)/density.subset(math.index(i, j)));
+				u_squ.subset(math.index(i, j), ux.subset(math.index(i, j))*ux.subset(math.index(i, j))+uy.subset(math.index(i, j))*uy.subset(math.index(i, j)));
+			}
+		}
+
+		var t1 = 0.444;
+		var t2 = 0.111;
+		var t3 = 0.028;
+		var c_squ = 0.333;
+
+		// Collide
+		for(i=0; i<x; i++) {
+			for(j=0; j<y; j++) {
+				if(data[i][j].wall) {
+					feq.subset(math.index(i, j, 1), feq.subset(math.index(i, j, 5)));
+					feq.subset(math.index(i, j, 2), feq.subset(math.index(i, j, 6)));
+					feq.subset(math.index(i, j, 3), feq.subset(math.index(i, j, 7)));
+					feq.subset(math.index(i, j, 4), feq.subset(math.index(i, j, 8)));
+					feq.subset(math.index(i, j, 5), feq.subset(math.index(i, j, 1)));
+					feq.subset(math.index(i, j, 6), feq.subset(math.index(i, j, 2)));
+					feq.subset(math.index(i, j, 7), feq.subset(math.index(i, j, 3)));
+					feq.subset(math.index(i, j, 8), feq.subset(math.index(i, j, 4)));
+					ux.subset(math.index(i, j), 0);
+					uy.subset(math.index(i, j), 0);
+					density.subset(math.index(i, j), 0);
+				} else {
+					feq.subset(math.index(i, j, 0), t1*density.subset(math.index(i, j))*(1-u_squ.subset(math.index(i, j))/(2*c_squ)));
+					feq.subset(math.index(i, j, 1), t2*density.subset(math.index(i, j))*(1+ux.subset(math.index(i, j))/c_squ+0.5*(ux.subset(math.index(i, j))/c_squ)^2-u_squ.subset(math.index(i, j))/(2*c_squ)));
+					feq.subset(math.index(i, j, 2), t3*density.subset(math.index(i, j))*(1+(ux.subset(math.index(i, j))+uy.subset(math.index(i, j)))/c_squ+0.5*((ux.subset(math.index(i, j))+uy.subset(math.index(i, j)))/c_squ)^2-u_squ.subset(math.index(i, j))/(2*c_squ)));
+					feq.subset(math.index(i, j, 3), t2*density.subset(math.index(i, j))*(1+uy.subset(math.index(i, j))/c_squ+0.5*(uy.subset(math.index(i, j))/c_squ)^2-u_squ.subset(math.index(i, j))/(2*c_squ)));
+					feq.subset(math.index(i, j, 4), t3*density.subset(math.index(i, j))*(1+(-ux.subset(math.index(i, j))+uy.subset(math.index(i, j)))/c_squ+0.5*((-ux.subset(math.index(i, j))+uy.subset(math.index(i, j)))/c_squ)^2-u_squ.subset(math.index(i, j))/(2*c_squ)));
+					feq.subset(math.index(i, j, 5), t2*density.subset(math.index(i, j))*(1-ux.subset(math.index(i, j))/c_squ+0.5*(ux.subset(math.index(i, j))/c_squ)^2-u_squ.subset(math.index(i, j))/(2*c_squ)));
+					feq.subset(math.index(i, j, 6), t3*density.subset(math.index(i, j))*(1+(-ux.subset(math.index(i, j))-uy.subset(math.index(i, j)))/c_squ+0.5*((-ux.subset(math.index(i, j))-uy.subset(math.index(i, j)))/c_squ)^2-u_squ.subset(math.index(i, j))/(2*c_squ)));
+					feq.subset(math.index(i, j, 7), t2*density.subset(math.index(i, j))*(1-uy.subset(math.index(i, j))/c_squ+0.5*(uy.subset(math.index(i, j))/c_squ)^2-u_squ.subset(math.index(i, j))/(2*c_squ)));
+					feq.subset(math.index(i, j, 8), t3*density.subset(math.index(i, j))*(1+(ux.subset(math.index(i, j))-uy.subset(math.index(i, j)))/c_squ+0.5*((ux.subset(math.index(i, j))-uy.subset(math.index(i, j)))/c_squ)^2-u_squ.subset(math.index(i, j))/(2*c_squ)));
+				}
+			}
+		}
+		
+		}
+		
+		for(i=0; i<x; i++) {
+			for(j=0; j<y; j++) {
+				if(!data[i][j].wall) {
+					data[i][j].speed = density.subset(math.index(i, j));
+					console.log(data[i][j].speed);
+					data[i][j].direction = math.atan(ux.subset(math.index(i, j))/uy.subset(math.index(i, j))*180/3.141);
 				}
 			}
 		}
@@ -59,8 +174,8 @@
 				.data(function (d) { return d; })
 				.enter().append("svg")
 				.attr("class", "cell")
-				.attr("x", function (d,i) { return i*size; })
-				.attr("y", function(d,i,j) { return j*size; })
+				.attr("y", function (d,i) { return i*size; })
+				.attr("x", function(d,i,j) { return j*size; })
 
 		var box = cell.append("svg:rect")
 				.attr("width", size)
