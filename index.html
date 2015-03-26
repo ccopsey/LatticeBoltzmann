@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>Lattice Boltzmann</title>
+		<script src="d3.3.5.5.min.js" charset="utf-8"></script>
+		<script src="math.1.4.0.min.js" charset="utf-8"></script>
+	</head>
+<body>
+	<svg id="chart">
+		<marker id="triangle"
+				viewBox="0 0 10 10" refX="10" refY="5" 
+				markerUnits="strokeWidth"
+				markerWidth="3" markerHeight="3"
+				orient="auto">
+			<path d="M 0 0 L 10 5 L 0 10 z" />
+		</marker>
+	</svg>
+	<script>
+		function vector() {
+			return {wall:false, speed:Math.random(), direction:Math.random()*360}
+		}
+
+		var x = 40;
+		var y = 20;
+		var size = 25;
+		var grid_color = '#AAA';
+
+		var data = [];
+
+		for(var i = 0;i<y;i++) {
+			data[i] = [];
+			for(var j = 0; j < x; j++) {
+				data[i][j] = new vector();
+				if(Math.random() < 0.15) {
+					data[i][j].wall=true;
+					data[i][j].speed=0;
+				}
+			}
+		}
+
+		var grid = d3.select("#chart")
+				.attr("width", x*size)
+				.attr("height", y*size)
+				.attr("class", "chart");
+
+		var row = grid.selectAll(".row")
+				.data(data)
+				.enter().append("svg:g")
+				.attr("class", "row");
+
+		var cell = row.selectAll(".cell")
+				.data(function (d) { return d; })
+				.enter().append("svg")
+				.attr("class", "cell")
+				.attr("x", function (d,i) { return i*size; })
+				.attr("y", function(d,i,j) { return j*size; })
+
+		var box = cell.append("svg:rect")
+				.attr("width", size)
+				.attr("height", size)
+				.style("fill", function(d) {
+					if (d.wall) {
+						return grid_color;
+					} else {
+						return '#FFF';
+					}
+				})
+				.style("stroke", grid_color)
+
+		var glyph = cell.append("svg:line")
+				.attr("class", "glyph")
+				.attr("x1", -1*((size / 2)-2))
+				.attr("y1", 0)
+				.attr("x2", ((size / 2)-2))
+				.attr("y2", 0)
+				.attr("marker-end", "url(#triangle)")
+				.attr("stroke", "black")
+				.attr("stroke-width", 1.5)
+				.attr("transform", function(d) { return "translate(" + size/2 +", " + size/2 + ") rotate(" + d.direction +") scale(" + d.speed +")" });
+	</script>
+</body>
