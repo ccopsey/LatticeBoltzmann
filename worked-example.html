@@ -1781,131 +1781,46 @@
 		</table>
 		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 		<script>
-		var arrayToTable = function (data, options) {
-			 
-		    "use strict";
-		 
-		    var table = $('<table />'),
-		        thead,
-		        tfoot,
-		        rows = [],
-		        row,
-		        i,
-		        j,
-		        defaults = {
-		            th: false, // should we use th elemenst for the first row
-		            thead: false, //should we incldue a thead element with the first row
-		            tfoot: false, // should we include a tfoot element with the last row
-		            attrs: {} // attributes for the table element, can be used to
-		        };
-		 
-		    options = $.extend(defaults, options);
-		 
-		    table.attr(options.attrs);
-		 
-		    // loop through all the rows, we will deal with tfoot and thead later
-		    for (i = 0; i < data.length; i = i + 1) {
-		        row = $('<tr />');
-		        for (j = 0; j < data[i].length; j = j + 1) {
-		            if (i === 0 && options.th) {
-		                row.append($('<th />').html(data[i][j]));
-		            } else {
-		                row.append($('<td />').html(data[i][j]));
-		            }
-		        }
-		        rows.push(row);
-		    }
-		 
-		    // if we want a thead use shift to get it
-		    if (options.thead) {
-		        thead = rows.shift();
-		        thead = $('<thead />').append(thead);
-		        table.append(thead);
-		    }
-		 
-		    // if we want a tfoot then pop it off for later use
-		    if (options.tfoot) {
-		        tfoot = rows.pop();
-		    }
-		 
-		    // add all the rows
-		    for (i = 0; i < rows.length; i = i + 1) {
-		        table.append(rows[i]);
-		    }
-		 
-		    // and finally add the footer if needed
-		    if (options.tfoot) {
-		        tfoot = $('<tfoot />').append(tfoot);
-		        table.append(tfoot);
-		    }
-		 
-		    return table;
-		};
+			var momentum_density_vector_matrix_to_table = function (data) {
+				"use strict";
 
-		var arrayToTable2 = function (data, options) {
-			 
-		    "use strict";
-		 
-		    var result = $('<div />'),
-		    	tables = [],
-		    	table,
-		        rows = [],
-		        row,
-		        i,
-		        j,
-		        k;
-		 
-		    for (i = 0; i < 5; i = i + 1) {
-		        for (j = 0; j < 5; j = j + 1) {
-		        	table = $('<table />');
-		        	for (k = 0; k < 3; k = k + 1) {
-		        		row = table.append($('<tr />'));
-		        		for(var l=0; l<3; l++) {
-		        			row.append($('<td />').html(data[k*3+l][i][j]));
-		        	   	}
-		        	   	rows.push(row);
-		           	}
-		           	for (k = 0; k < rows.length; k = k + 1) {
-				        table.append(rows[k]);
-				    }
-			        tables.push(table);
-		        }
-		        for (j = 0; j < tables.length; j = j + 1) {
-			        result.append(tables[j]);
-			    }
-		    }
-		 
-		    return result;
-		};
-		
-			var density_vectors_01 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_02 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_03 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_04 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_05 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_06 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_07 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_08 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_09 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_10 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_11 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_12 = [[0.083, 0.333, 0.083], [0.333, 1.333, 0.333], [0.083, 0.333, 0.083]];
-			var density_vectors_13 = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]];
-			var density_vectors_14 = [[0.028, 0.111, 0.028], [0.111, 0.444, 0.111], [0.028, 0.111, 0.028]];
-			var density_vectors_15 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_16 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_17 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_18 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_19 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_20 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_21 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_22 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_23 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_24 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			var density_vectors_25 = [[0.014, 0.139, 0.180], [0.056, 0.555, 0.722], [0.014, 0.139, 0.180]];
-			
+				var result = $('<table />');
+				for (var i=0; i<5; i++) {
+					var outer_row = $('<tr />');
+					for (var j=0; j<5; j++) {
+						var outer_cell = $('<td />');
+						var table = $('<table />');
+						for (var k=0; k<3; k++) {
+							var row = $('<tr />');
+							for(var l=0; l<3; l++) {
+								row.append($('<td />').html(data[k*3+l][i][j]));
+							}
+							table.append(row);
+						}
+						outer_cell.append(table);
+						outer_row.append(outer_cell);
+					}
+					result.append(outer_row);
+				}
+
+				return result;
+			};
+
+			var stream = function (matrix) {
+				"use strict";
+
+				var result = matrix;
+
+				return result;
+			}
+
+			var body = $('body');
+
 			var density_vectors = [[[0.014, 0.014, 0.014, 0.014, 0.014], [0.014, 0.014, 0.014, 0.014, 0.014], [0.014, 0.083, 0, 0.028, 0.014], [0.014, 0.014, 0.014, 0.014, 0.014], [0.014, 0.014, 0.014, 0.014, 0.014]], [[0.139, 0.139, 0.139, 0.139, 0.139], [0.139, 0.139, 0.139, 0.139, 0.139], [0.139, 0.333, 0, 0.111, 0.139], [0.139, 0.139, 0.139, 0.139, 0.139], [0.139, 0.139, 0.139, 0.139, 0.139]], [[0.18, 0.18, 0.18, 0.18, 0.18], [0.18, 0.18, 0.18, 0.18, 0.18], [0.18, 0.083, 0, 0.028, 0.18], [0.18, 0.18, 0.18, 0.18, 0.18], [0.18, 0.18, 0.18, 0.18, 0.18]], [[0.056, 0.056, 0.056, 0.056, 0.056], [0.056, 0.056, 0.056, 0.056, 0.056], [0.056, 0.333, 0, 0.111, 0.056], [0.056, 0.056, 0.056, 0.056, 0.056], [0.056, 0.056, 0.056, 0.056, 0.056]], [[0.555, 0.555, 0.555, 0.555, 0.555], [0.555, 0.555, 0.555, 0.555, 0.555], [0.555, 1.333, 0, 0.444, 0.555], [0.555, 0.555, 0.555, 0.555, 0.555], [0.555, 0.555, 0.555, 0.555, 0.555]], [[0.722, 0.722, 0.722, 0.722, 0.722], [0.722, 0.722, 0.722, 0.722, 0.722], [0.722, 0.333, 0, 0.111, 0.722], [0.722, 0.722, 0.722, 0.722, 0.722], [0.722, 0.722, 0.722, 0.722, 0.722]], [[0.014, 0.014, 0.014, 0.014, 0.014], [0.014, 0.014, 0.014, 0.014, 0.014], [0.014, 0.083, 0, 0.028, 0.014], [0.014, 0.014, 0.014, 0.014, 0.014], [0.014, 0.014, 0.014, 0.014, 0.014]], [[0.139, 0.139, 0.139, 0.139, 0.139], [0.139, 0.139, 0.139, 0.139, 0.139], [0.139, 0.333, 0, 0.111, 0.139], [0.139, 0.139, 0.139, 0.139, 0.139], [0.139, 0.139, 0.139, 0.139, 0.139]], [[0.18, 0.18, 0.18, 0.18, 0.18], [0.18, 0.18, 0.18, 0.18, 0.18], [0.18, 0.083, 0, 0.028, 0.18], [0.18, 0.18, 0.18, 0.18, 0.18], [0.18, 0.18, 0.18, 0.18, 0.18]]];
-			$('body').append(arrayToTable2(density_vectors));
+			body.append(momentum_density_vector_matrix_to_table(density_vectors));
+
+			density_vectors_2 = stream(density_vectors);
+			body.append(momentum_density_vector_matrix_to_table(density_vectors_2));
 		</script>
 	</body>
 </html>
