@@ -1804,7 +1804,7 @@
 						for (var k=0; k<3; k++) {
 							var row = $('<tr />');
 							for(var l=0; l<3; l++) {
-								row.append($('<td />').html(data[i][j][cell_to_node[k*3+l]]));
+								row.append($('<td />').text(data[i][j][cell_to_node[k*3+l]].toFixed(3)));
 							}
 							table.append(row);
 						}
@@ -1812,6 +1812,21 @@
 						outer_row.append(outer_cell);
 					}
 					result.append(outer_row);
+				}
+
+				return result;
+			};
+
+			var momentum_density_matrix_to_table = function (matrix) {
+				"use strict";
+
+				var result = $('<table />');
+				for (var i=0; i<5; i++) {
+					var row = $('<tr />');
+					for (var j=0; j<5; j++) {
+						row.append($('<td />').text(matrix[i][j].toFixed(3)));
+					}
+					result.append(row);
 				}
 
 				return result;
@@ -1840,13 +1855,86 @@
 				return result;
 			}
 
+			var calculate_momentum_density_matrix = function (matrix) {
+				"use strict";
+
+				var result = [];
+				for (var i=0; i<5; i++) {
+					result[i] = [];
+					for (var j=0; j<5; j++) {
+						result[i][j] = 0;
+						for (var k=0; k<3; k++) {
+							for (var l=0; l<3; l++) {
+								result[i][j] += matrix[i][j][(k*3)+l];
+							}
+						}
+					}
+				}
+
+				return result;
+			}
+
+			var calculate_ux_matrix = function (matrix) {
+				"use strict";
+
+				var result = [];
+				for (var i=0; i<5; i++) {
+					result[i] = [];
+					for (var j=0; j<5; j++) {
+						result[i][j] = 0;
+						result[i][j] += matrix[i][j][1];
+						result[i][j] += matrix[i][j][2];
+						result[i][j] -= matrix[i][j][4];
+						result[i][j] -= matrix[i][j][5];
+						result[i][j] -= matrix[i][j][6];
+						result[i][j] += matrix[i][j][8];
+					}
+				}
+
+				return result;
+			}
+
+			var calculate_uy_matrix = function (matrix) {
+				"use strict";
+
+				var result = [];
+				for (var i=0; i<5; i++) {
+					result[i] = [];
+					for (var j=0; j<5; j++) {
+						result[i][j] = 0;
+						result[i][j] -= matrix[i][j][2];
+						result[i][j] -= matrix[i][j][3];
+						result[i][j] -= matrix[i][j][4];
+						result[i][j] += matrix[i][j][6];
+						result[i][j] += matrix[i][j][7];
+						result[i][j] += matrix[i][j][8];
+					}
+				}
+
+				return result;
+			}
+
 			var body = $('body');
 
 			var density_vectors =  [[[0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014]], [[0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014]], [[0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [1.333, 0.333, 0.083, 0.333, 0.083, 0.333, 0.083, 0.333, 0.083], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0.444, 0.111, 0.028, 0.111, 0.028, 0.111, 0.028, 0.111, 0.028], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014]], [[0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014]], [[0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014]]];
+			body.append("<h4>Momentum Density Vector Matrix after Collision:</h4>");
 			body.append(momentum_density_vector_matrix_to_table(density_vectors));
 
 			density_vectors_2 = stream(density_vectors);
+			body.append("<h4>Momentum Density Vector Matrix after Streaming:</h4>");
 			body.append(momentum_density_vector_matrix_to_table(density_vectors_2));
+
+			density_2 = calculate_momentum_density_matrix(density_vectors_2);
+			body.append("<h4>Momentum Density Matrix after Streaming:</h4>");
+			body.append(momentum_density_matrix_to_table(density_2));
+
+			ux_2 = calculate_ux_matrix(density_vectors_2);
+			body.append("<h4>Ux after Streaming:</h4>");
+			body.append(momentum_density_matrix_to_table(ux_2));
+
+			uy_2 = calculate_uy_matrix(density_vectors_2);
+			body.append("<h4>Uy after Streaming:</h4>");
+			body.append(momentum_density_matrix_to_table(uy_2));
 		</script>
 	</body>
 </html>
