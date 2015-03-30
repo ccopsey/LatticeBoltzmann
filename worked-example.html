@@ -1781,6 +1781,17 @@
 		</table>
 		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 		<script>
+			var cell_to_node = [];
+			cell_to_node[0] = 2;
+			cell_to_node[1] = 3;
+			cell_to_node[2] = 4;
+			cell_to_node[3] = 1;
+			cell_to_node[4] = 0;
+			cell_to_node[5] = 5;
+			cell_to_node[6] = 8;
+			cell_to_node[7] = 7;
+			cell_to_node[8] = 6;
+
 			var momentum_density_vector_matrix_to_table = function (data) {
 				"use strict";
 
@@ -1793,7 +1804,7 @@
 						for (var k=0; k<3; k++) {
 							var row = $('<tr />');
 							for(var l=0; l<3; l++) {
-								row.append($('<td />').html(data[k*3+l][i][j]));
+								row.append($('<td />').html(data[i][j][cell_to_node[k*3+l]]));
 							}
 							table.append(row);
 						}
@@ -1810,35 +1821,19 @@
 				"use strict";
 
 				var result = [];
-				result[0] = [];
-				result[1] = [];
-				result[2] = [];
-				result[3] = [];
-				result[4] = [];
-				result[5] = [];
-				result[6] = [];
-				result[7] = [];
-				result[8] = [];
 				for (var i=0; i<5; i++) {
-					result[0][i] = [];
-					result[1][i] = [];
-					result[2][i] = [];
-					result[3][i] = [];
-					result[4][i] = [];
-					result[5][i] = [];
-					result[6][i] = [];
-					result[7][i] = [];
-					result[8][i] = [];
+					result[i] = [];
 					for (var j=0; j<5; j++) {
-						result[0][i][j] = 0;//matrix[0][i][j];
-						result[1][i][j] = 1;//matrix[5][(i-1+5)%5][j];
-						result[2][i][j] = 2;//matrix[6][(i-1+5)%5][(j+1)%5];
-						result[3][i][j] = 3;//matrix[7][i][(j+1)%5];
-						result[4][i][j] = matrix[8][(i+1)%5][(j+1)%5];
-						result[5][i][j] = matrix[1][(i+1)%5][j];
-						result[6][i][j] = matrix[2][(i+1)%5][(j-1+5)%5];
-						result[7][i][j] = matrix[3][i][(j-1+5)%5];
-						result[8][i][j] = matrix[4][(i-1+5)%5][(j-1+5)%5];
+						result[i][j] = [];
+						result[i][j][0] = matrix[(i+0+5)%5][(j+0+5)%5][0];
+						result[i][j][1] = matrix[(i+0+5)%5][(j-1+5)%5][5];
+						result[i][j][2] = matrix[(i-1+5)%5][(j-1+5)%5][6];
+						result[i][j][3] = matrix[(i-1+5)%5][(j+0+5)%5][7];
+						result[i][j][4] = matrix[(i-1+5)%5][(j+1+5)%5][8];
+						result[i][j][5] = matrix[(i+0+5)%5][(j+1+5)%5][1];
+						result[i][j][6] = matrix[(i+1+5)%5][(j+1+5)%5][2];
+						result[i][j][7] = matrix[(i+1+5)%5][(j+0+5)%5][3];
+						result[i][j][8] = matrix[(i+1+5)%5][(j-1+5)%5][4];
 					}
 				}
 
