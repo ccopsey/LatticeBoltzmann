@@ -3,1782 +3,6 @@
 		<title>A 2D Lattice-Boltzmann Worked Example</title>
 	</head>
 	<body>
-		<table>
-			<tr>
-				<th colspan=5>Ux</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td class="wall"></td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th colspan=5>Uy</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td class="wall"></td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th colspan=5>Momentum Density</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td class="wall"></td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th colspan=5>Momentum Density Vectors</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				 </td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				 </td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				 </td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				 </td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td class="wall"></td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th colspan=5>Momentum Density Vectors After Streaming</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				 </td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				 </td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				 </td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				 </td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>1.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td class="wall"></td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>1.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th colspan=5>Momentum Density After Streaming</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>3.0</td>
-				<td class="wall"></td>
-				<td>1.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th colspan=5>Ux</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.0</td>
-				<td class="wall"></td>
-				<td>0.0</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th colspan=5>Uy</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td class="wall"></td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th colspan=5>Momentum Density Vectors After Collision</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				 </td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				 </td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				 </td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				 </td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.083</td>
-				 			<td>0.333</td>
-				 			<td>0.083</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.333</td>
-				 			<td>1.333</td>
-				 			<td>0.333</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.083</td>
-				 			<td>0.333</td>
-				 			<td>0.083</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td class="wall"></td>
-				<td>
-					<table>
-				 		<tr>
-				 			<td>0.028</td>
-				 			<td>0.111</td>
-				 			<td>0.028</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.111</td>
-				 			<td>0.444</td>
-				 			<td>0.111</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.028</td>
-				 			<td>0.111</td>
-				 			<td>0.028</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-				<td>
-					<table>
-						<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.056</td>
-				 			<td>0.555</td>
-				 			<td>0.722</td>
-				 		</tr>
-				 		<tr>
-				 			<td>0.014</td>
-				 			<td>0.139</td>
-				 			<td>0.180</td>
-				 		</tr>
-				 	</table>
-				</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th colspan=5>Momentum Density After Collision</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>3.0</td>
-				<td class="wall"></td>
-				<td>1.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-			<tr>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-				<td>2.0</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th colspan=5>Ux After Collision</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.0</td>
-				<td class="wall"></td>
-				<td>0.0</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-			<tr>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-				<td>0.5</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th colspan=5>Uy After Collision</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td class="wall"></td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-				<td>0.0</td>
-			</tr>
-		</table>
 		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 		<script>
 			var cell_to_node = [];
@@ -1832,7 +56,20 @@
 				return result;
 			};
 
-			var stream = function (matrix) {
+			var momentum_density_matrix_to_value = function (matrix) {
+				"use strict";
+
+				var result = 0.0;
+				for (var i=0; i<5; i++) {
+					for (var j=0; j<5; j++) {
+						result += matrix[i][j];
+					}
+				}
+
+				return result.toFixed(3);
+			};
+
+			var stream = function (matrix, wall) {
 				"use strict";
 
 				var result = [];
@@ -1841,14 +78,84 @@
 					for (var j=0; j<5; j++) {
 						result[i][j] = [];
 						result[i][j][0] = matrix[(i+0+5)%5][(j+0+5)%5][0];
-						result[i][j][1] = matrix[(i+0+5)%5][(j-1+5)%5][5];
-						result[i][j][2] = matrix[(i-1+5)%5][(j-1+5)%5][6];
-						result[i][j][3] = matrix[(i-1+5)%5][(j+0+5)%5][7];
-						result[i][j][4] = matrix[(i-1+5)%5][(j+1+5)%5][8];
-						result[i][j][5] = matrix[(i+0+5)%5][(j+1+5)%5][1];
-						result[i][j][6] = matrix[(i+1+5)%5][(j+1+5)%5][2];
-						result[i][j][7] = matrix[(i+1+5)%5][(j+0+5)%5][3];
-						result[i][j][8] = matrix[(i+1+5)%5][(j-1+5)%5][4];
+						if(wall[i][j] || wall[(i+0+5)%5][(j-1+5)%5]) {
+							result[i][j][1] = matrix[i][j][1];
+						} else {
+							result[i][j][1] = matrix[(i+0+5)%5][(j-1+5)%5][5];
+						}
+						if(wall[i][j] || wall[(i-1+5)%5][(j-1+5)%5]) {
+							result[i][j][2] = matrix[i][j][2];
+						} else {
+							result[i][j][2] = matrix[(i-1+5)%5][(j-1+5)%5][6];
+						}
+						if(wall[i][j] || wall[(i-1+5)%5][(j+0+5)%5]) {
+							result[i][j][3] = matrix[i][j][3];
+						} else {
+							result[i][j][3] = matrix[(i-1+5)%5][(j+0+5)%5][7];
+						}
+						if(wall[i][j] || wall[(i-1+5)%5][(j+1+5)%5]) {
+							result[i][j][4] = matrix[i][j][4];
+						} else {
+							result[i][j][4] = matrix[(i-1+5)%5][(j+1+5)%5][8];
+						}
+						if(wall[i][j] || wall[(i+0+5)%5][(j+1+5)%5]) {
+							result[i][j][5] = matrix[i][j][5];
+						} else {
+							result[i][j][5] = matrix[(i+0+5)%5][(j+1+5)%5][1];
+						}
+						if(wall[i][j] || wall[(i+1+5)%5][(j+1+5)%5]) {
+							result[i][j][6] = matrix[i][j][6];
+						} else {
+							result[i][j][6] = matrix[(i+1+5)%5][(j+1+5)%5][2];
+						}
+						if(wall[i][j] || wall[(i+1+5)%5][(j+0+5)%5]) {
+							result[i][j][7] = matrix[i][j][7];
+						} else {
+							result[i][j][7] = matrix[(i+1+5)%5][(j+0+5)%5][3];
+						}
+						if(wall[i][j] || wall[(i+1+5)%5][(j-1+5)%5]) {
+							result[i][j][8] = matrix[i][j][8];
+						} else {
+							result[i][j][8] = matrix[(i+1+5)%5][(j-1+5)%5][4];
+						}
+					}
+				}
+
+				return result;
+			}
+
+			var collide = function (matrix, density, ux, uy) {
+				"use strict";
+
+				var t1 = 0.444;
+				var t2 = 0.111;
+				var t3 = 0.028;
+				var c_squ = 0.333;
+
+				var result = [];
+				for (var i=0; i<5; i++) {
+					result[i] = [];
+					for (var j=0; j<5; j++) {
+						var u1 = -ux[i][j];
+						var u2 = -ux[i][j]+uy[i][j];
+						var u3 =          +uy[i][j];
+						var u4 = +ux[i][j]+uy[i][j];
+						var u5 = +ux[i][j];
+						var u6 = +ux[i][j]-uy[i][j];
+						var u7 =          -uy[i][j];
+						var u8 = -ux[i][j]-uy[i][j];
+						var u_squ = Math.pow(ux[i][j],2)+Math.pow(uy[i][j],2);
+
+						result[i][j] = [];
+						result[i][j][0] = t1*density[i][j]*(1-u_squ/(2*c_squ));
+						result[i][j][1] = t2*density[i][j]*(1+(u1/c_squ)+0.5*Math.pow((u1/c_squ),2)-u_squ/(2*c_squ));
+						result[i][j][2] = t3*density[i][j]*(1+(u2/c_squ)+0.5*Math.pow((u2/c_squ),2)-u_squ/(2*c_squ));
+						result[i][j][3] = t2*density[i][j]*(1+(u3/c_squ)+0.5*Math.pow((u3/c_squ),2)-u_squ/(2*c_squ));
+						result[i][j][4] = t3*density[i][j]*(1+(u4/c_squ)+0.5*Math.pow((u4/c_squ),2)-u_squ/(2*c_squ));
+						result[i][j][5] = t2*density[i][j]*(1+(u5/c_squ)+0.5*Math.pow((u5/c_squ),2)-u_squ/(2*c_squ));
+						result[i][j][6] = t3*density[i][j]*(1+(u6/c_squ)+0.5*Math.pow((u6/c_squ),2)-u_squ/(2*c_squ));
+						result[i][j][7] = t2*density[i][j]*(1+(u7/c_squ)+0.5*Math.pow((u7/c_squ),2)-u_squ/(2*c_squ));
+						result[i][j][8] = t3*density[i][j]*(1+(u8/c_squ)+0.5*Math.pow((u8/c_squ),2)-u_squ/(2*c_squ));
 					}
 				}
 
@@ -1874,40 +181,56 @@
 				return result;
 			}
 
-			var calculate_ux_matrix = function (matrix) {
+			var calculate_ux_matrix = function (matrix, invert) {
 				"use strict";
+
+				if (typeof(invert)==='undefined') {
+					invert = false;
+				}
 
 				var result = [];
 				for (var i=0; i<5; i++) {
 					result[i] = [];
 					for (var j=0; j<5; j++) {
 						result[i][j] = 0;
-						result[i][j] += matrix[i][j][1];
-						result[i][j] += matrix[i][j][2];
-						result[i][j] -= matrix[i][j][4];
-						result[i][j] -= matrix[i][j][5];
-						result[i][j] -= matrix[i][j][6];
-						result[i][j] += matrix[i][j][8];
+						result[i][j] -= matrix[i][j][1];
+						result[i][j] -= matrix[i][j][2];
+						result[i][j] += matrix[i][j][4];
+						result[i][j] += matrix[i][j][5];
+						result[i][j] += matrix[i][j][6];
+						result[i][j] -= matrix[i][j][8];
+
+						if(invert) {
+							result[i][j] = -result[i][j];
+						}
 					}
 				}
 
 				return result;
 			}
 
-			var calculate_uy_matrix = function (matrix) {
+			var calculate_uy_matrix = function (matrix, invert) {
 				"use strict";
+
+				if (typeof(invert)==='undefined') {
+					invert = false;
+				}
 
 				var result = [];
 				for (var i=0; i<5; i++) {
 					result[i] = [];
 					for (var j=0; j<5; j++) {
 						result[i][j] = 0;
-						result[i][j] -= matrix[i][j][2];
-						result[i][j] -= matrix[i][j][3];
-						result[i][j] -= matrix[i][j][4];
-						result[i][j] += matrix[i][j][6];
-						result[i][j] += matrix[i][j][7];
-						result[i][j] += matrix[i][j][8];
+						result[i][j] += matrix[i][j][2];
+						result[i][j] += matrix[i][j][3];
+						result[i][j] += matrix[i][j][4];
+						result[i][j] -= matrix[i][j][6];
+						result[i][j] -= matrix[i][j][7];
+						result[i][j] -= matrix[i][j][8];
+
+						if(invert) {
+							result[i][j] = -result[i][j];
+						}
 					}
 				}
 
@@ -1916,25 +239,146 @@
 
 			var body = $('body');
 
-			var density_vectors =  [[[0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014]], [[0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014]], [[0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [1.333, 0.333, 0.083, 0.333, 0.083, 0.333, 0.083, 0.333, 0.083], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0.444, 0.111, 0.028, 0.111, 0.028, 0.111, 0.028, 0.111, 0.028], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014]], [[0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014]], [[0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014], [0.555, 0.056, 0.014, 0.139, 0.18, 0.722, 0.18, 0.139, 0.014]]];
-			body.append("<h4>Momentum Density Vector Matrix after Collision:</h4>");
-			body.append(momentum_density_vector_matrix_to_table(density_vectors));
+			var wall = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
+			var density_vectors_1 = [
+			                            [
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                            ], [
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                            ], [
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9]
+			                            ], [
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9]
+			                            ], [
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9],
+			                                [1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9]
+			                            ]
+			                        ];
 
-			density_vectors_2 = stream(density_vectors);
-			body.append("<h4>Momentum Density Vector Matrix after Streaming:</h4>");
+			body.append("<h4>Momentum Density Vector Matrix after Collision 1:</h4>");
+			body.append(momentum_density_vector_matrix_to_table(density_vectors_1));
+
+			density_1 = calculate_momentum_density_matrix(density_vectors_1);
+			body.append("<h4>Momentum Density Matrix after Collision 1:</h4>");
+			body.append(momentum_density_matrix_to_table(density_1));
+
+			body.append("<h4>Momentum after Collision 1:</h4>");
+			body.append(momentum_density_matrix_to_value(density_1));
+
+			ux_1 = calculate_ux_matrix(density_vectors_1);
+			body.append("<h4>Ux after Collision 1:</h4>");
+			body.append(momentum_density_matrix_to_table(ux_1));
+
+			uy_1 = calculate_uy_matrix(density_vectors_1);
+			body.append("<h4>Uy after Collision 1:</h4>");
+			body.append(momentum_density_matrix_to_table(uy_1));
+
+			density_vectors_2 = stream(density_vectors_1, wall);
+			body.append("<h4>Momentum Density Vector Matrix after Streaming 2:</h4>");
 			body.append(momentum_density_vector_matrix_to_table(density_vectors_2));
 
 			density_2 = calculate_momentum_density_matrix(density_vectors_2);
-			body.append("<h4>Momentum Density Matrix after Streaming:</h4>");
+			body.append("<h4>Momentum Density Matrix after Streaming 2:</h4>");
 			body.append(momentum_density_matrix_to_table(density_2));
 
-			ux_2 = calculate_ux_matrix(density_vectors_2);
-			body.append("<h4>Ux after Streaming:</h4>");
+			body.append("<h4>Momentum after Streaming 2:</h4>");
+			body.append(momentum_density_matrix_to_value(density_2));
+
+			ux_2 = calculate_ux_matrix(density_vectors_2, true);
+			body.append("<h4>Ux after Streaming 2:</h4>");
 			body.append(momentum_density_matrix_to_table(ux_2));
 
-			uy_2 = calculate_uy_matrix(density_vectors_2);
-			body.append("<h4>Uy after Streaming:</h4>");
+			uy_2 = calculate_uy_matrix(density_vectors_2, true);
+			body.append("<h4>Uy after Streaming 2:</h4>");
 			body.append(momentum_density_matrix_to_table(uy_2));
+
+			density_vectors_3 = collide(density_vectors_2, density_2, ux_2, uy_2);
+			body.append("<h4>Momentum Density Vector Matrix after Collision 3:</h4>");
+			body.append(momentum_density_vector_matrix_to_table(density_vectors_3));
+
+			density_3 = calculate_momentum_density_matrix(density_vectors_3);
+			body.append("<h4>Momentum Density Matrix after Collision 3:</h4>");
+			body.append(momentum_density_matrix_to_table(density_3));
+
+			body.append("<h4>Momentum after Collision 3:</h4>");
+			body.append(momentum_density_matrix_to_value(density_3));
+
+			ux_3 = calculate_ux_matrix(density_vectors_3);
+			body.append("<h4>Ux after Collision 3:</h4>");
+			body.append(momentum_density_matrix_to_table(ux_3));
+
+			uy_3 = calculate_uy_matrix(density_vectors_3);
+			body.append("<h4>Uy after Collision 3:</h4>");
+			body.append(momentum_density_matrix_to_table(uy_3));
+
+			for(var i=0; i<100; i++) {
+				body.append("<h3>Timestep " + i + "</h3>");
+
+				density_vectors_4 = stream(density_vectors_3, wall);
+				body.append("<h4>Momentum Density Vector Matrix after Streaming:</h4>");
+				body.append(momentum_density_vector_matrix_to_table(density_vectors_4));
+
+				density_4 = calculate_momentum_density_matrix(density_vectors_4);
+				body.append("<h4>Momentum Density Matrix after Streaming:</h4>");
+				body.append(momentum_density_matrix_to_table(density_4));
+
+				body.append("<h4>Momentum after Streaming:</h4>");
+				body.append(momentum_density_matrix_to_value(density_4));
+
+				ux_4 = calculate_ux_matrix(density_vectors_4, true);
+				body.append("<h4>Ux after Streaming:</h4>");
+				body.append(momentum_density_matrix_to_table(ux_4));
+
+				uy_4 = calculate_uy_matrix(density_vectors_4, true);
+				body.append("<h4>Uy after Streaming:</h4>");
+				body.append(momentum_density_matrix_to_table(uy_4));
+
+				body.append("<h4>Apply boundary condition:</h4>");
+				ux_4[0][0] += 0.01;
+				ux_4[1][0] += 0.01;
+				ux_4[2][0] += 0.01;
+				ux_4[3][0] += 0.01;
+				ux_4[4][0] += 0.01;
+				body.append(momentum_density_matrix_to_table(ux_4));
+
+				density_vectors_3 = collide(density_vectors_4, density_4, ux_4, uy_4);
+				body.append("<h4>Momentum Density Vector Matrix after Collision:</h4>");
+				body.append(momentum_density_vector_matrix_to_table(density_vectors_3));
+
+				density_5 = calculate_momentum_density_matrix(density_vectors_3);
+				body.append("<h4>Momentum Density Matrix after Collision:</h4>");
+				body.append(momentum_density_matrix_to_table(density_5));
+
+				body.append("<h4>Momentum after Collision:</h4>");
+				body.append(momentum_density_matrix_to_value(density_5));
+
+				ux_5 = calculate_ux_matrix(density_vectors_3);
+				body.append("<h4>Ux after Collision:</h4>");
+				body.append(momentum_density_matrix_to_table(ux_5));
+
+				uy_5 = calculate_uy_matrix(density_vectors_3);
+				body.append("<h4>Uy after Collision:</h4>");
+				body.append(momentum_density_matrix_to_table(uy_5));
+			}
 		</script>
 	</body>
 </html>
